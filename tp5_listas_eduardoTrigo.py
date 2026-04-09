@@ -86,3 +86,18 @@ for i in range(len(pares)):
 print(f"\nCantidad de numeros impares: {cant_impares}")
 for i in range(len(impares)):
     print(impares[i])
+
+
+#ejercicio 4
+
+datos = [1 , 3 , 5 , 3 , 7 , 1 , 9 , 5 , 3]
+
+sin_repetir = []
+
+for i in range(len(datos)):
+    if datos[i] not in sin_repetir:
+        sin_repetir.append(datos[i])
+
+print("Lista sin repetidos:")
+for i in range(len(sin_repetir)):
+    print(f"indice {i} : {sin_repetir[i]}")
