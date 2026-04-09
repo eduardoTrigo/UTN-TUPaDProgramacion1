@@ -53,3 +53,36 @@ if eliminar in ordenados:
         print(f"producto {i + 1} : {ordenados[i]}")
 else:
     print("el producto no se encuentra en la lista")
+
+
+# ejercicio 3
+import random
+
+numeros = []
+
+for i in range(15):
+    numero = random.randint(1, 100)
+    numeros.append(numero)
+
+for i in range(len(numeros)):
+    print(f"numero {i+1}: {numeros[i]}")
+
+pares = []
+impares = []
+cant_pares = 0
+cant_impares = 0
+
+for i in range(len(numeros)):
+    if numeros[i] % 2 == 0:
+        pares.append(numeros[i])
+        cant_pares += 1
+    else: 
+        impares.append(numeros[i])
+        cant_impares += 1
+
+print(f"\nCantidad de numeros pares: {cant_pares}")
+for i in range(len(pares)):
+    print(pares[i])
+print(f"\nCantidad de numeros impares: {cant_impares}")
+for i in range(len(impares)):
+    print(impares[i])
