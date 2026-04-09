@@ -28,3 +28,28 @@ for i in range(len(notas)):
 print(f"promedios: {promedio}")
 print(f"La nota más alta es: {nota_max}")
 print(f"La nota más baja es: {nota_min}")
+
+#ejercicio 2
+productos = []
+
+for i in range(5):
+    producto = input(f"Ingrese el nombre del producto {i + 1}: ")
+    while not producto.isalpha():
+        producto = input(f"Ingrese un nombre del producto {i + 1} valido (solo letras):")
+    productos.append(producto)
+#la funcion sorted() devuelve una nueva lista ordenada
+ordenados = sorted(productos)
+
+print("\nLista de productos ordenada: ")
+for i in range(len(ordenados)):
+    print(f"producto {i + 1} : {ordenados[i]}")
+
+eliminar = input("Que producto desea eliminar?: ")
+
+if eliminar in ordenados:
+    ordenados.remove(eliminar)
+    print("\nLista de productos actualizada: ")
+    for i in range(len(ordenados)):
+        print(f"producto {i + 1} : {ordenados[i]}")
+else:
+    print("el producto no se encuentra en la lista")
