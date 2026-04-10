@@ -89,7 +89,6 @@ for i in range(len(impares)):
 
 
 #ejercicio 4
-
 datos = [1 , 3 , 5 , 3 , 7 , 1 , 9 , 5 , 3]
 
 sin_repetir = []
@@ -101,3 +100,140 @@ for i in range(len(datos)):
 print("Lista sin repetidos:")
 for i in range(len(sin_repetir)):
     print(f"indice {i} : {sin_repetir[i]}")
+
+
+# ejercicio 5
+alumnos_presentes = []
+
+for i in range(8):
+    nombre_alumno = input(f"ingrese el nombre del alumno {i+1} presente: ")
+    while not nombre_alumno.isalpha():
+        nombre_alumno = input(f"ingrese nuevamente el nombre del alumno {i+1} presente: ")
+    alumnos_presentes.append(nombre_alumno)
+
+print(f"\nListado de alumnos presentes: ")
+for i in range(len(alumnos_presentes)):
+    print(f"alumno {i + 1} : {alumnos_presentes[i]}")
+
+salir = False
+
+while not salir:
+    print("\nElija una opcion: ")
+    print("1) Eliminar alumno.")
+    print("2) Agregar alumno.")
+    print("3) Salir.")
+    opcion = input()
+    while not opcion.isdigit() or int(opcion) < 1 or int(opcion) > 3:
+        opcion = input("Ingrese una opcion 1 al 3:")
+
+    if opcion == "1":
+        eliminar = input("Ingrese el nombre del alumno para sacarlo de la lista")
+        while not eliminar.isalpha():
+            eliminar = input(f"Ingrese nuevamente el nombre del alumno a eliminar: ")
+        alumnos_presentes.remove(eliminar)
+    elif opcion == "2":
+        agregar = input("Ingrese el nombre del alumno para agregar a la lista")
+        while not agregar.isalpha():
+            agregar = input("Ingrese nuevamente el nombre del alumno para agregar a la lista")
+        alumnos_presentes.append(agregar)
+    elif opcion == "3":
+        print("Saliendo...")
+        salir = True
+        break
+    print(f"\nListado de alumnos presentes: ")
+    for i in range(len(alumnos_presentes)):
+        print(f"alumno {i + 1} : {alumnos_presentes[i]}")
+
+#ejercicio 6
+numeros = []
+
+for i in range(7):
+    numero = input("Ingrese un numero (del 1 al 10): ")
+    while not numero.isdigit():
+        numero = input("Ingrese nuevamente un numero valido del 1 al 10: ")
+    numeros.append(numero)
+
+print("\nLista numeros: ")
+for i in range(len(numeros)):
+    print(f"numero{i + 1} : {numeros[i]}")
+
+ultimo = numeros[-1]
+numeros = [ultimo] + numeros[:-1]
+
+print("\nLista numeros invertida: ")
+for i in range(len(numeros)):
+    print(f"numero{i} : {numeros[i]}")
+
+#ejercicio 7
+temperaturas = []
+
+for i in range(7):
+    print(f"\nDia: {i + 1}")
+    temp_min = float(input("ingrese la temperatura minima del dia: "))
+    temp_max = float(input("ingrese la temperatura maxima del dia: "))
+    while temp_max < temp_min:
+        temp_max = float(input("Ingrese una máxima mayor o igual a la mínima: "))
+
+    temperaturas.append([temp_min, temp_max])
+
+suma_min = 0
+suma_max = 0
+
+for i in range(len(temperaturas)):
+    suma_min += temperaturas[i][0]
+    suma_max += temperaturas[i][1]
+
+prom_min = suma_min / len(temperaturas)
+prom_max = suma_max / len(temperaturas)
+
+mayor_amplitud = float('-inf')
+dia_mayor = 0
+
+for i in range(len(temperaturas)):
+    amplitud = temperaturas[i][1] - temperaturas[i][0]
+
+    if mayor_amplitud < amplitud:
+        mayor_amplitud = amplitud
+        dia_mayor = i +1
+
+print(f"Día con mayor amplitud térmica: {dia_mayor} , amplitud: {mayor_amplitud}" )
+
+#ejercicio 8
+
+notas = []
+
+for i in range(5):
+    fila = []
+    print(f"\nEstudiante {i + 1}: ")
+    for j in range(3):
+        nota = input(f"ingrese la nota {j + 1}: ")
+        while not nota.isdigit() or int(nota) < 0 or int(nota) > 10:
+            nota = input("ingrese una nota valida del 0 al 10: ")
+        fila.append(int(nota))
+    notas.append(fila)
+
+lista_promedios = []
+
+for i in range(5):
+    suma = 0        
+    for j in range(3):
+        suma += notas[i][j]
+    
+    promedio = suma / 3
+    lista_promedios.append(promedio)
+
+
+print("\nPromedio por alumno: ")
+for i in range(len(lista_promedios)):
+    print(f"alumno {i + 1} : {lista_promedios[i]:.2f}")
+
+
+print("\nPromedio por materia:")
+
+for j in range(3):
+    suma = 0
+    for i in range(5):
+        suma += notas[i][j]
+    
+    promedio = suma / 5
+    print(f"Materia {j+1}: {promedio:.2f}")
