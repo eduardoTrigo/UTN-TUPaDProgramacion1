@@ -237,3 +237,53 @@ for j in range(3):
     
     promedio = suma / 5
     print(f"Materia {j+1}: {promedio:.2f}")
+    
+
+# ejercicio 9
+tablero = []
+
+for i in range(3):
+    fila = []
+    for j in range(3):
+        fila.append("-")
+    tablero.append(fila)
+
+turno = "X"
+jugada = 0
+
+while jugada < 9:
+    print("\nTablero:")
+    for i in range(3):
+        for j in range(3):
+            print(tablero[i][j], end= " ")
+        print()
+
+    print(f"\nTurno de : {turno}")
+
+    fila = input("ingrese fila del 1 al 3: ")
+    while not fila.isdigit() or int(fila) < 1 or int(fila) > 3:
+        fila = input("ingrese fila del 1 al 3: ") 
+    
+    columna = input("ingrese fila del 1 al 3: ")
+    while not fila.isdigit() or int(columna) < 1 or int(columna) > 3:
+        columna = input("ingrese fila del 1 al 3: ") 
+    
+    fila = int(fila)
+    columna = int(columna)
+
+    if tablero[fila][columna] == "-":
+        tablero[fila][columna] = turno
+        jugada += 1
+
+        if turno == "X":
+            turno = "O"
+        else:
+            turno = "X"
+    else:
+        print("Esa posición ya está ocupada, intentá de nuevo")
+
+print("\nTablero final:")
+for i in range(3):
+    for j in range(3):
+        print(tablero[i][j], end=" ")
+    print()
