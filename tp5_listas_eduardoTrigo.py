@@ -338,3 +338,72 @@ for i in range(cant_productos):
         producto_mayor = i + 1
 
 print(f"Producto más vendido en la semana: Producto {producto_mayor}")
+
+#ejercicio 11
+
+estudiantes = []
+
+for i in range(10):
+    nombre = input(f"Ingrese el nombre del estudiante {i+1}: ")
+    
+    while not nombre.isalpha():
+        nombre = input("Ingrese un nombre válido (solo letras): ")
+    
+    estudiantes.append(nombre)
+
+buscar = input("\nIngrese el nombre a buscar: ")
+
+while not buscar.isalpha():
+    buscar = input("Ingrese un nombre válido: ")
+
+encontrado = False
+
+for i in range(len(estudiantes)):
+    if estudiantes[i].lower() == buscar.lower():
+        print(f"El nombre se encuentra en la posición {i}")
+        encontrado = True
+        break
+
+if not encontrado:
+    print("El nombre no se encuentra en la lista")
+
+
+# ejercicio 12
+
+numeros = []
+
+for i in range(8):
+    num = input(f"Ingrese el número {i+1}: ")
+    
+    while not num.lstrip("-").isdigit():
+        num = input("Ingrese un número entero válido: ")
+    
+    numeros.append(int(num))
+
+print("\nLista original:")
+print(numeros)
+
+ascendente = sorted(numeros)
+print("\nLista ordenada de menor a mayor:")
+print(ascendente)
+
+descendente = sorted(numeros, reverse=True)
+print("\nLista ordenada de mayor a menor:")
+print(descendente)
+
+#ejercicio 13
+
+puntajes = [450, 1200, 875, 990, 300, 1500, 640]
+
+mayor = max(puntajes)
+menor = min(puntajes)
+
+print("Puntaje más alto:", mayor)
+print("Puntaje más bajo:", menor)
+ranking = sorted(puntajes, reverse=True)
+
+print("\nRanking (mayor a menor):")
+print(ranking)
+
+posicion = ranking.index(990)
+print(f"\nEl puntaje 990 está en la posición {posicion + 1}")
