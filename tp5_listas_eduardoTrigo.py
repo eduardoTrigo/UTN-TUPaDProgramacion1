@@ -237,7 +237,7 @@ for j in range(3):
     
     promedio = suma / 5
     print(f"Materia {j+1}: {promedio:.2f}")
-    
+
 
 # ejercicio 9
 tablero = []
@@ -287,3 +287,54 @@ for i in range(3):
     for j in range(3):
         print(tablero[i][j], end=" ")
     print()
+
+#ejercicio 10:
+cant_productos = 4
+cant_dias = 7
+
+ventas = []
+
+for i in range(cant_productos):
+    fila = []
+    print(f"\nProducto {i + 1}: ")
+    for j in range(cant_dias):
+        venta = input(f"ingrese la venta del dia {j + 1} :")
+        while not venta.isdigit() or int(venta) < 0:
+            venta = input(f"Ingrese un número válido mayor o igual a 0 :")
+        fila.append(int(venta))
+    ventas.append(fila)
+
+print("\nTotal vendido por cada producto:")
+total_ventas = []
+
+for i in range(cant_productos):
+    suma = 0
+    for j in range(cant_dias):
+        suma += ventas[i][j]
+    total_ventas.append(suma)
+    print(f"Producto {i+1}: {suma}")
+
+mayor_ventas_dia = float('-inf')
+dia_mayor = 0
+
+for j in range(cant_dias):
+    suma = 0
+    
+    for i in range(cant_productos):
+        suma += ventas[i][j]
+    
+    if suma > mayor_ventas_dia:
+        mayor_ventas_dia = suma
+        dia_mayor = j + 1
+
+print(f"\nDía con mayores ventas: Día {dia_mayor}")
+
+mayor_producto = float('-inf')
+producto_mayor = 0
+
+for i in range(cant_productos):
+    if total_ventas[i] > mayor_producto:
+        mayor_producto = total_ventas[i]
+        producto_mayor = i + 1
+
+print(f"Producto más vendido en la semana: Producto {producto_mayor}")
