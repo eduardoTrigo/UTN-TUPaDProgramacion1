@@ -99,3 +99,29 @@ altura = float(input("Ingrese su altura en metros: "))
 resultado = calcular_imc(peso, altura)
 
 print(f"Su IMC es: {resultado:.2f}")
+
+#ejercicio 9
+
+def celsius_a_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+
+celsius = float(input("Ingrese la temperatura en grados Celsius: "))
+
+resultado = celsius_a_fahrenheit(celsius)
+
+print(f"La temperatura en Fahrenheit es: {resultado}")
+
+#ejercicio 10
+
+def calcular_promedio(a, b, c):
+    promedio = (a + b + c) / 3
+    return promedio
+
+a = float(input("Ingrese el primer número: "))
+b = float(input("Ingrese el segundo número: "))
+c = float(input("Ingrese el tercer número: "))
+
+resultado = calcular_promedio(a, b, c)
+
+print(f"El promedio es: {resultado:.2f}")
